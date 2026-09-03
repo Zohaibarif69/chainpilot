@@ -8,7 +8,7 @@
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
-import { put, head } from "@vercel/blob";
+import { put, get, head } from "@vercel/blob";
 import { buildSeedDb, type Db } from "./seedData";
 
 const BLOB_PATH = "chainpilot/db.json";
@@ -32,14 +32,16 @@ function saveToFile(db: Db) {
 }
 
 // ---- Vercel Blob (used in production / whenever a token is present) -------
+// Store is private: every read AND write must go through the SDK (which
+// authenticates via BLOB_READ_WRITE_TOKEN / OIDC). Plain `fetch(blob.url)`
+// does NOT work against a private store — the SDK's own `get()` is required.
 async function loadFromBlob(): Promise<Db> {
   try {
-    const blob = await head(BLOB_PATH);
-    // Cache-bust: blob URLs are content-addressed but can be edge-cached:
-    // append a timestamp query param so we always read the latest write.
-    const res = await fetch(`${blob.url}?t=${Date.now()}`, { cache: "no-store" });
-    if (!res.ok) throw new Error(`Blob fetch failed: ${res.status}`);
-    return res.json();
+    await head(BLOB_PATH); // throws (e.g. BlobNotFoundError) if the blob doesn't exist yet
+    const result = await get(BLOB_PATH, { access: "private", useCache: false });
+    if (!result || !result.stream) throw new Error("Blob exists but returned no content");
+    const text = await new Response(result.stream).text();
+    return JSON.parse(text);
   } catch {
     // Not found yet (first ever request) -> seed it.
     const db = buildSeedDb();
@@ -50,7 +52,7 @@ async function loadFromBlob(): Promise<Db> {
 
 async function saveToBlob(db: Db) {
   await put(BLOB_PATH, JSON.stringify(db, null, 2), {
-    access: "public",
+    access: "private",
     contentType: "application/json",
     allowOverwrite: true,
   });

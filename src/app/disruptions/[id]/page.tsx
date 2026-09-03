@@ -86,7 +86,7 @@ function ToolCallCard({ event }: { event: AgentToolEvent }) {
           {event.status === "running" && <div className="text-[11px] text-[#2563EB] mt-0.5">Running…</div>}
           {event.status === "failed" && <div className="text-[11px] text-[#DC2626] mt-0.5">Failed — see detail</div>}
         </div>
-        {hasDetail && event.status === "completed" && (
+        {hasDetail && (event.status === "completed" || event.status === "failed") && (
           <span className="shrink-0 text-[#98A2B3] group-hover:text-[#667085] mt-0.5">
             {expanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
           </span>
@@ -94,7 +94,9 @@ function ToolCallCard({ event }: { event: AgentToolEvent }) {
       </button>
       {expanded && event.output && (
         <div className="mt-1 ml-9 mr-3 mb-2 bg-[#F7F8FA] border border-[#E5E7EB] rounded-lg p-3 animate-fade-in">
-          <p className="text-[10px] font-semibold text-[#98A2B3] uppercase tracking-wider mb-1.5">Real tool output</p>
+          <p className="text-[10px] font-semibold text-[#98A2B3] uppercase tracking-wider mb-1.5">
+            {event.status === "failed" ? "Error detail" : "Real tool output"}
+          </p>
           <div className="space-y-1">
             {Object.entries(event.output).map(([k, v]) => (
               <div key={k} className="flex gap-2 text-[11px]">
@@ -284,8 +286,13 @@ export default function DisruptionDetail() {
     };
     const now = () => new Date().toLocaleTimeString();
 
+    // Tracks whichever step is currently in flight so a thrown error can be
+    // attributed to the real tool/event instead of being hardcoded.
+    let currentEventId: string | null = null;
+
     try {
       // 1. get_shipment_impact
+      currentEventId = "e1";
       push([{ id: "e1", tool: "get_shipment_impact", status: "running", startedAt: now(), input: { shipmentId } }]);
       let t0 = performance.now();
       const impact = await tools.get_shipment_impact({ shipmentId });
@@ -302,6 +309,7 @@ export default function DisruptionDetail() {
       ]);
 
       // 2. find_recovery_options
+      currentEventId = "e2";
       push([{ id: "e2", tool: "find_recovery_options", status: "running", startedAt: now(), input: { shipmentId } }]);
       t0 = performance.now();
       const { options: foundOptions } = await tools.find_recovery_options({ shipmentId });
@@ -325,6 +333,7 @@ export default function DisruptionDetail() {
       for (let i = 0; i < foundOptions.length; i++) {
         const opt = foundOptions[i];
         const eventId = `sim-${opt.id}`;
+        currentEventId = eventId;
         push([{ id: eventId, tool: "simulate_recovery_plan", status: "running", startedAt: now(), input: { optionId: opt.id, planName: opt.name } }]);
         t0 = performance.now();
         const sim = await tools.simulate_recovery_plan({ shipmentId, optionId: opt.id });
@@ -353,7 +362,18 @@ export default function DisruptionDetail() {
       });
       setState("recommendation_ready");
     } catch (err) {
-      push([{ id: "error", tool: "get_shipment_impact", status: "failed", startedAt: now(), detail: err instanceof Error ? err.message : "Investigation failed" }]);
+      const message = err instanceof Error ? err.message : "Investigation failed";
+      // Mark whichever step was actually in flight as failed, instead of
+      // always blaming get_shipment_impact — and surface the real error text.
+      push([
+        {
+          id: currentEventId ?? "error",
+          status: "failed",
+          startedAt: now(),
+          detail: message,
+          output: { error: message },
+        },
+      ]);
     }
   };
 
