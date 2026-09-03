@@ -162,7 +162,7 @@
       "priority": "critical",
       "promisedDate": "2026-09-02",
       "revenue": 22000,
-      "status": "at_risk"
+      "status": "critical"
     },
     {
       "id": "ORD-1031",
@@ -173,7 +173,7 @@
       "priority": "critical",
       "promisedDate": "2026-09-02",
       "revenue": 28000,
-      "status": "at_risk"
+      "status": "critical"
     },
     {
       "id": "ORD-1019",
@@ -184,7 +184,7 @@
       "priority": "critical",
       "promisedDate": "2026-09-03",
       "revenue": 20000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1042",
@@ -195,7 +195,7 @@
       "priority": "critical",
       "promisedDate": "2026-09-03",
       "revenue": 8000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1055",
@@ -206,7 +206,7 @@
       "priority": "critical",
       "promisedDate": "2026-09-04",
       "revenue": 7000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1067",
@@ -217,7 +217,7 @@
       "priority": "critical",
       "promisedDate": "2026-09-04",
       "revenue": 9000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1072",
@@ -228,7 +228,7 @@
       "priority": "critical",
       "promisedDate": "2026-09-05",
       "revenue": 6000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1083",
@@ -239,7 +239,7 @@
       "priority": "high",
       "promisedDate": "2026-09-05",
       "revenue": 15000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1091",
@@ -250,7 +250,7 @@
       "priority": "high",
       "promisedDate": "2026-09-06",
       "revenue": 6000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1099",
@@ -261,7 +261,7 @@
       "priority": "high",
       "promisedDate": "2026-09-06",
       "revenue": 9000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1104",
@@ -272,7 +272,7 @@
       "priority": "high",
       "promisedDate": "2026-09-07",
       "revenue": 7000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1112",
@@ -283,7 +283,7 @@
       "priority": "high",
       "promisedDate": "2026-09-07",
       "revenue": 11000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1118",
@@ -294,7 +294,7 @@
       "priority": "normal",
       "promisedDate": "2026-09-08",
       "revenue": 6000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1125",
@@ -305,7 +305,7 @@
       "priority": "normal",
       "promisedDate": "2026-09-08",
       "revenue": 7000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1133",
@@ -316,7 +316,7 @@
       "priority": "normal",
       "promisedDate": "2026-09-09",
       "revenue": 5000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1140",
@@ -327,7 +327,7 @@
       "priority": "normal",
       "promisedDate": "2026-09-09",
       "revenue": 6000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1148",
@@ -338,7 +338,7 @@
       "priority": "normal",
       "promisedDate": "2026-09-10",
       "revenue": 5000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-1156",
@@ -349,7 +349,7 @@
       "priority": "normal",
       "promisedDate": "2026-09-10",
       "revenue": 7000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-2001",
@@ -382,7 +382,7 @@
       "priority": "critical",
       "promisedDate": "2026-09-09",
       "revenue": 10000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-4002",
@@ -393,7 +393,7 @@
       "priority": "critical",
       "promisedDate": "2026-09-09",
       "revenue": 8000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-4003",
@@ -404,7 +404,7 @@
       "priority": "critical",
       "promisedDate": "2026-09-10",
       "revenue": 6000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-4004",
@@ -415,7 +415,7 @@
       "priority": "high",
       "promisedDate": "2026-09-11",
       "revenue": 5000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-4005",
@@ -426,7 +426,7 @@
       "priority": "high",
       "promisedDate": "2026-09-12",
       "revenue": 4000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-4006",
@@ -437,7 +437,7 @@
       "priority": "high",
       "promisedDate": "2026-09-13",
       "revenue": 3000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-4007",
@@ -448,7 +448,7 @@
       "priority": "normal",
       "promisedDate": "2026-09-14",
       "revenue": 5000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-4008",
@@ -459,7 +459,7 @@
       "priority": "normal",
       "promisedDate": "2026-09-15",
       "revenue": 5000,
-      "status": "at_risk"
+      "status": "protected"
     },
     {
       "id": "ORD-4009",
@@ -470,7 +470,7 @@
       "priority": "normal",
       "promisedDate": "2026-09-16",
       "revenue": 4000,
-      "status": "at_risk"
+      "status": "protected"
     }
   ],
   "shipments": [
@@ -480,10 +480,10 @@
       "destination": "Dubai",
       "productId": "PRD-001",
       "quantity": 12400,
-      "status": "delayed",
+      "status": "at_risk",
       "originalEta": "2026-08-31",
-      "currentEta": "2026-09-05",
-      "delayDays": 5
+      "currentEta": "2026-09-03",
+      "delayDays": 3
     },
     {
       "id": "SHP-441",
@@ -513,10 +513,10 @@
       "destination": "Hamburg",
       "productId": "PRD-002",
       "quantity": 3800,
-      "status": "at_risk",
+      "status": "recovered",
       "originalEta": "2026-09-08",
-      "currentEta": "2026-09-10",
-      "delayDays": 2
+      "currentEta": "2026-09-09",
+      "delayDays": 1
     },
     {
       "id": "SHP-471",
@@ -627,7 +627,476 @@
       ]
     }
   ],
-  "recoveryPlans": [],
+  "recoveryPlans": [
+    {
+      "id": "PLAN-1",
+      "shipmentId": "SHP-482",
+      "optionId": "ROUTE-A",
+      "status": "completed",
+      "strategy": "Dubai Express Reroute",
+      "simulation": {
+        "optionId": "ROUTE-A",
+        "additionalCost": 8400,
+        "recoveryDays": 4,
+        "riskLevel": "low",
+        "recoveredEta": "2026-09-04",
+        "ordersProtected": 14,
+        "ordersStillAtRisk": 4,
+        "revenueProtected": 106000,
+        "protectedOrderIds": [
+          "ORD-1055",
+          "ORD-1067",
+          "ORD-1072",
+          "ORD-1083",
+          "ORD-1091",
+          "ORD-1099",
+          "ORD-1104",
+          "ORD-1112",
+          "ORD-1118",
+          "ORD-1125",
+          "ORD-1133",
+          "ORD-1140",
+          "ORD-1148",
+          "ORD-1156"
+        ],
+        "atRiskOrderIds": [
+          "ORD-1024",
+          "ORD-1031",
+          "ORD-1019",
+          "ORD-1042"
+        ],
+        "scoreBreakdown": {
+          "cost": 58,
+          "recoveryTime": 40,
+          "risk": 90,
+          "customerImpact": 78
+        },
+        "score": 61
+      },
+      "before": {
+        "ordersAtRisk": 18,
+        "revenueAtRisk": 184000
+      },
+      "after": {
+        "ordersAtRisk": 4,
+        "revenueAtRisk": 78000
+      },
+      "createdAt": "2026-09-03T18:34:04.233Z",
+      "approvedAt": "2026-09-03T18:37:24.688Z",
+      "executedAt": "2026-09-03T18:37:27.022Z"
+    },
+    {
+      "id": "PLAN-2",
+      "shipmentId": "SHP-482",
+      "optionId": "SUPPLIER-B",
+      "status": "completed",
+      "strategy": "Emergency Supplier",
+      "simulation": {
+        "optionId": "SUPPLIER-B",
+        "additionalCost": 14200,
+        "recoveryDays": 2,
+        "riskLevel": "medium",
+        "recoveredEta": "2026-09-02",
+        "ordersProtected": 18,
+        "ordersStillAtRisk": 0,
+        "revenueProtected": 184000,
+        "protectedOrderIds": [
+          "ORD-1024",
+          "ORD-1031",
+          "ORD-1019",
+          "ORD-1042",
+          "ORD-1055",
+          "ORD-1067",
+          "ORD-1072",
+          "ORD-1083",
+          "ORD-1091",
+          "ORD-1099",
+          "ORD-1104",
+          "ORD-1112",
+          "ORD-1118",
+          "ORD-1125",
+          "ORD-1133",
+          "ORD-1140",
+          "ORD-1148",
+          "ORD-1156"
+        ],
+        "atRiskOrderIds": [],
+        "scoreBreakdown": {
+          "cost": 29,
+          "recoveryTime": 70,
+          "risk": 60,
+          "customerImpact": 100
+        },
+        "score": 60
+      },
+      "before": {
+        "ordersAtRisk": 4,
+        "revenueAtRisk": 78000
+      },
+      "after": {
+        "ordersAtRisk": 0,
+        "revenueAtRisk": 0
+      },
+      "createdAt": "2026-09-03T18:34:04.519Z",
+      "approvedAt": "2026-09-03T18:38:14.096Z",
+      "executedAt": "2026-09-03T18:38:14.892Z"
+    },
+    {
+      "id": "PLAN-3",
+      "shipmentId": "SHP-482",
+      "optionId": "REALLOC-C",
+      "status": "completed",
+      "strategy": "Inventory Reallocation",
+      "simulation": {
+        "optionId": "REALLOC-C",
+        "additionalCost": 3100,
+        "recoveryDays": 3,
+        "riskLevel": "low",
+        "recoveredEta": "2026-09-03",
+        "ordersProtected": 16,
+        "ordersStillAtRisk": 2,
+        "revenueProtected": 134000,
+        "protectedOrderIds": [
+          "ORD-1019",
+          "ORD-1042",
+          "ORD-1055",
+          "ORD-1067",
+          "ORD-1072",
+          "ORD-1083",
+          "ORD-1091",
+          "ORD-1099",
+          "ORD-1104",
+          "ORD-1112",
+          "ORD-1118",
+          "ORD-1125",
+          "ORD-1133",
+          "ORD-1140",
+          "ORD-1148",
+          "ORD-1156"
+        ],
+        "atRiskOrderIds": [
+          "ORD-1024",
+          "ORD-1031"
+        ],
+        "scoreBreakdown": {
+          "cost": 85,
+          "recoveryTime": 55,
+          "risk": 90,
+          "customerImpact": 89
+        },
+        "score": 76
+      },
+      "before": {
+        "ordersAtRisk": 0,
+        "revenueAtRisk": 0
+      },
+      "after": {
+        "ordersAtRisk": 2,
+        "revenueAtRisk": 50000
+      },
+      "createdAt": "2026-09-03T18:34:04.603Z",
+      "approvedAt": "2026-09-03T18:39:09.095Z",
+      "executedAt": "2026-09-03T18:39:09.646Z"
+    },
+    {
+      "id": "PLAN-4",
+      "shipmentId": "SHP-482",
+      "optionId": "ROUTE-A",
+      "status": "draft",
+      "strategy": "Dubai Express Reroute",
+      "simulation": {
+        "optionId": "ROUTE-A",
+        "additionalCost": 8400,
+        "recoveryDays": 4,
+        "riskLevel": "low",
+        "recoveredEta": "2026-09-04",
+        "ordersProtected": 14,
+        "ordersStillAtRisk": 4,
+        "revenueProtected": 106000,
+        "protectedOrderIds": [
+          "ORD-1055",
+          "ORD-1067",
+          "ORD-1072",
+          "ORD-1083",
+          "ORD-1091",
+          "ORD-1099",
+          "ORD-1104",
+          "ORD-1112",
+          "ORD-1118",
+          "ORD-1125",
+          "ORD-1133",
+          "ORD-1140",
+          "ORD-1148",
+          "ORD-1156"
+        ],
+        "atRiskOrderIds": [
+          "ORD-1024",
+          "ORD-1031",
+          "ORD-1019",
+          "ORD-1042"
+        ],
+        "scoreBreakdown": {
+          "cost": 58,
+          "recoveryTime": 40,
+          "risk": 90,
+          "customerImpact": 78
+        },
+        "score": 61
+      },
+      "before": {
+        "ordersAtRisk": 2,
+        "revenueAtRisk": 50000
+      },
+      "after": null,
+      "createdAt": "2026-09-03T18:38:03.694Z",
+      "approvedAt": null,
+      "executedAt": null
+    },
+    {
+      "id": "PLAN-5",
+      "shipmentId": "SHP-463",
+      "optionId": "RAIL-EXPRESS",
+      "status": "draft",
+      "strategy": "Rail Express via Rotterdam",
+      "simulation": {
+        "optionId": "RAIL-EXPRESS",
+        "additionalCost": 4200,
+        "recoveryDays": 3,
+        "riskLevel": "low",
+        "recoveredEta": "2026-09-11",
+        "ordersProtected": 6,
+        "ordersStillAtRisk": 3,
+        "revenueProtected": 26000,
+        "protectedOrderIds": [
+          "ORD-4004",
+          "ORD-4005",
+          "ORD-4006",
+          "ORD-4007",
+          "ORD-4008",
+          "ORD-4009"
+        ],
+        "atRiskOrderIds": [
+          "ORD-4001",
+          "ORD-4002",
+          "ORD-4003"
+        ],
+        "scoreBreakdown": {
+          "cost": 79,
+          "recoveryTime": 55,
+          "risk": 90,
+          "customerImpact": 67
+        },
+        "score": 71
+      },
+      "before": {
+        "ordersAtRisk": 9,
+        "revenueAtRisk": 50000
+      },
+      "after": null,
+      "createdAt": "2026-09-03T18:38:26.680Z",
+      "approvedAt": null,
+      "executedAt": null
+    },
+    {
+      "id": "PLAN-6",
+      "shipmentId": "SHP-463",
+      "optionId": "SUPPLIER-BERLIN",
+      "status": "completed",
+      "strategy": "Emergency Supplier — Berlin",
+      "simulation": {
+        "optionId": "SUPPLIER-BERLIN",
+        "additionalCost": 11500,
+        "recoveryDays": 1,
+        "riskLevel": "medium",
+        "recoveredEta": "2026-09-09",
+        "ordersProtected": 9,
+        "ordersStillAtRisk": 0,
+        "revenueProtected": 50000,
+        "protectedOrderIds": [
+          "ORD-4001",
+          "ORD-4002",
+          "ORD-4003",
+          "ORD-4004",
+          "ORD-4005",
+          "ORD-4006",
+          "ORD-4007",
+          "ORD-4008",
+          "ORD-4009"
+        ],
+        "atRiskOrderIds": [],
+        "scoreBreakdown": {
+          "cost": 43,
+          "recoveryTime": 85,
+          "risk": 60,
+          "customerImpact": 100
+        },
+        "score": 70
+      },
+      "before": {
+        "ordersAtRisk": 9,
+        "revenueAtRisk": 50000
+      },
+      "after": {
+        "ordersAtRisk": 0,
+        "revenueAtRisk": 0
+      },
+      "createdAt": "2026-09-03T18:38:26.882Z",
+      "approvedAt": "2026-09-03T18:38:37.600Z",
+      "executedAt": "2026-09-03T18:38:38.192Z"
+    },
+    {
+      "id": "PLAN-7",
+      "shipmentId": "SHP-463",
+      "optionId": "REALLOC-DXB",
+      "status": "draft",
+      "strategy": "Inventory Reallocation",
+      "simulation": {
+        "optionId": "REALLOC-DXB",
+        "additionalCost": 2800,
+        "recoveryDays": 2,
+        "riskLevel": "low",
+        "recoveredEta": "2026-09-10",
+        "ordersProtected": 7,
+        "ordersStillAtRisk": 2,
+        "revenueProtected": 32000,
+        "protectedOrderIds": [
+          "ORD-4003",
+          "ORD-4004",
+          "ORD-4005",
+          "ORD-4006",
+          "ORD-4007",
+          "ORD-4008",
+          "ORD-4009"
+        ],
+        "atRiskOrderIds": [
+          "ORD-4001",
+          "ORD-4002"
+        ],
+        "scoreBreakdown": {
+          "cost": 86,
+          "recoveryTime": 70,
+          "risk": 90,
+          "customerImpact": 78
+        },
+        "score": 80
+      },
+      "before": {
+        "ordersAtRisk": 9,
+        "revenueAtRisk": 50000
+      },
+      "after": null,
+      "createdAt": "2026-09-03T18:38:27.024Z",
+      "approvedAt": null,
+      "executedAt": null
+    },
+    {
+      "id": "PLAN-8",
+      "shipmentId": "SHP-482",
+      "optionId": "SUPPLIER-B",
+      "status": "draft",
+      "strategy": "Emergency Supplier",
+      "simulation": {
+        "optionId": "SUPPLIER-B",
+        "additionalCost": 14200,
+        "recoveryDays": 2,
+        "riskLevel": "medium",
+        "recoveredEta": "2026-09-02",
+        "ordersProtected": 18,
+        "ordersStillAtRisk": 0,
+        "revenueProtected": 184000,
+        "protectedOrderIds": [
+          "ORD-1024",
+          "ORD-1031",
+          "ORD-1019",
+          "ORD-1042",
+          "ORD-1055",
+          "ORD-1067",
+          "ORD-1072",
+          "ORD-1083",
+          "ORD-1091",
+          "ORD-1099",
+          "ORD-1104",
+          "ORD-1112",
+          "ORD-1118",
+          "ORD-1125",
+          "ORD-1133",
+          "ORD-1140",
+          "ORD-1148",
+          "ORD-1156"
+        ],
+        "atRiskOrderIds": [],
+        "scoreBreakdown": {
+          "cost": 29,
+          "recoveryTime": 70,
+          "risk": 60,
+          "customerImpact": 100
+        },
+        "score": 60
+      },
+      "before": {
+        "ordersAtRisk": 2,
+        "revenueAtRisk": 50000
+      },
+      "after": null,
+      "createdAt": "2026-09-03T18:38:52.165Z",
+      "approvedAt": null,
+      "executedAt": null
+    },
+    {
+      "id": "PLAN-9",
+      "shipmentId": "SHP-482",
+      "optionId": "REALLOC-C",
+      "status": "draft",
+      "strategy": "Inventory Reallocation",
+      "simulation": {
+        "optionId": "REALLOC-C",
+        "additionalCost": 3100,
+        "recoveryDays": 3,
+        "riskLevel": "low",
+        "recoveredEta": "2026-09-03",
+        "ordersProtected": 16,
+        "ordersStillAtRisk": 2,
+        "revenueProtected": 134000,
+        "protectedOrderIds": [
+          "ORD-1019",
+          "ORD-1042",
+          "ORD-1055",
+          "ORD-1067",
+          "ORD-1072",
+          "ORD-1083",
+          "ORD-1091",
+          "ORD-1099",
+          "ORD-1104",
+          "ORD-1112",
+          "ORD-1118",
+          "ORD-1125",
+          "ORD-1133",
+          "ORD-1140",
+          "ORD-1148",
+          "ORD-1156"
+        ],
+        "atRiskOrderIds": [
+          "ORD-1024",
+          "ORD-1031"
+        ],
+        "scoreBreakdown": {
+          "cost": 85,
+          "recoveryTime": 55,
+          "risk": 90,
+          "customerImpact": 89
+        },
+        "score": 76
+      },
+      "before": {
+        "ordersAtRisk": 2,
+        "revenueAtRisk": 50000
+      },
+      "after": null,
+      "createdAt": "2026-09-03T19:08:29.078Z",
+      "approvedAt": null,
+      "executedAt": null
+    }
+  ],
   "activityLog": [
     {
       "id": "ACT-1",
@@ -638,6 +1107,121 @@
       "id": "ACT-2",
       "message": "Shipment SHP-463 marked at risk (+2 days)",
       "at": "2026-09-03T11:52:41.530Z"
+    },
+    {
+      "id": "ACT-3",
+      "message": "3 recovery options identified for SHP-482",
+      "at": "2026-09-03T18:34:02.406Z"
+    },
+    {
+      "id": "ACT-4",
+      "message": "Simulated \"Dubai Express Reroute\" — score 61/100, 14 orders protected",
+      "at": "2026-09-03T18:34:04.233Z"
+    },
+    {
+      "id": "ACT-5",
+      "message": "Simulated \"Emergency Supplier\" — score 60/100, 18 orders protected",
+      "at": "2026-09-03T18:34:04.519Z"
+    },
+    {
+      "id": "ACT-6",
+      "message": "Simulated \"Inventory Reallocation\" — score 76/100, 16 orders protected",
+      "at": "2026-09-03T18:34:04.603Z"
+    },
+    {
+      "id": "ACT-7",
+      "message": "Human approved recovery plan PLAN-1 (Dubai Express Reroute)",
+      "at": "2026-09-03T18:37:24.688Z"
+    },
+    {
+      "id": "ACT-8",
+      "message": "Recovery plan PLAN-1 executed — shipment rescheduled to 2026-09-04",
+      "at": "2026-09-03T18:37:27.022Z"
+    },
+    {
+      "id": "ACT-9",
+      "message": "Recovery plan PLAN-1 verified — orders at risk 18 → 4",
+      "at": "2026-09-03T18:37:28.615Z"
+    },
+    {
+      "id": "ACT-10",
+      "message": "Simulated \"Dubai Express Reroute\" — score 61/100, 14 orders protected",
+      "at": "2026-09-03T18:38:03.694Z"
+    },
+    {
+      "id": "ACT-11",
+      "message": "Human approved recovery plan PLAN-2 (Emergency Supplier)",
+      "at": "2026-09-03T18:38:14.097Z"
+    },
+    {
+      "id": "ACT-12",
+      "message": "Recovery plan PLAN-2 executed — shipment rescheduled to 2026-09-02",
+      "at": "2026-09-03T18:38:14.892Z"
+    },
+    {
+      "id": "ACT-13",
+      "message": "Recovery plan PLAN-2 verified — orders at risk 4 → 0",
+      "at": "2026-09-03T18:38:15.598Z"
+    },
+    {
+      "id": "ACT-14",
+      "message": "3 recovery options identified for SHP-463",
+      "at": "2026-09-03T18:38:26.468Z"
+    },
+    {
+      "id": "ACT-15",
+      "message": "Simulated \"Rail Express via Rotterdam\" — score 71/100, 6 orders protected",
+      "at": "2026-09-03T18:38:26.680Z"
+    },
+    {
+      "id": "ACT-16",
+      "message": "Simulated \"Emergency Supplier — Berlin\" — score 70/100, 9 orders protected",
+      "at": "2026-09-03T18:38:26.882Z"
+    },
+    {
+      "id": "ACT-17",
+      "message": "Simulated \"Inventory Reallocation\" — score 80/100, 7 orders protected",
+      "at": "2026-09-03T18:38:27.024Z"
+    },
+    {
+      "id": "ACT-18",
+      "message": "Human approved recovery plan PLAN-6 (Emergency Supplier — Berlin)",
+      "at": "2026-09-03T18:38:37.601Z"
+    },
+    {
+      "id": "ACT-19",
+      "message": "Recovery plan PLAN-6 executed — shipment rescheduled to 2026-09-09",
+      "at": "2026-09-03T18:38:38.192Z"
+    },
+    {
+      "id": "ACT-20",
+      "message": "Recovery plan PLAN-6 verified — orders at risk 9 → 0",
+      "at": "2026-09-03T18:38:38.636Z"
+    },
+    {
+      "id": "ACT-21",
+      "message": "Simulated \"Emergency Supplier\" — score 60/100, 18 orders protected",
+      "at": "2026-09-03T18:38:52.165Z"
+    },
+    {
+      "id": "ACT-22",
+      "message": "Human approved recovery plan PLAN-3 (Inventory Reallocation)",
+      "at": "2026-09-03T18:39:09.095Z"
+    },
+    {
+      "id": "ACT-23",
+      "message": "Recovery plan PLAN-3 executed — shipment rescheduled to 2026-09-03",
+      "at": "2026-09-03T18:39:09.646Z"
+    },
+    {
+      "id": "ACT-24",
+      "message": "Recovery plan PLAN-3 verified — no improvement detected",
+      "at": "2026-09-03T18:39:10.090Z"
+    },
+    {
+      "id": "ACT-25",
+      "message": "Simulated \"Inventory Reallocation\" — score 76/100, 16 orders protected",
+      "at": "2026-09-03T19:08:29.078Z"
     }
   ]
 }
