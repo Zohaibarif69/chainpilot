@@ -1,0 +1,25 @@
+import { NextRequest, NextResponse } from "next/server";
+import { randomUUID } from "crypto";
+import { SESSION_COOKIE } from "@/lib/session";
+import { loadDb } from "@/lib/db";
+
+export async function POST(req: NextRequest) {
+  const existing = req.cookies.get(SESSION_COOKIE)?.value;
+  const sessionId = existing ?? randomUUID();
+
+  // Pre-seed the DB for this session (no-op if the blob already exists)
+  await loadDb(sessionId);
+
+  const res = NextResponse.json({ sessionId });
+
+  if (!existing) {
+    res.cookies.set(SESSION_COOKIE, sessionId, {
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 60 * 60 * 24, // 24 hours
+      path: "/",
+    });
+  }
+
+  return res;
+}

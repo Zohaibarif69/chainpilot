@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyRecovery, ApiError } from "@/lib/tools";
+import { getSessionId } from "@/lib/session";
 
 export async function POST(req: NextRequest) {
+  const sessionId = getSessionId(req);
   try {
     const body = await req.json().catch(() => ({}));
-    const result = await verifyRecovery(body);
+    const result = await verifyRecovery(sessionId, body);
     return NextResponse.json(result);
   } catch (err: any) {
     const status = err instanceof ApiError && err.code === "NOT_FOUND" ? 404 : 500;
