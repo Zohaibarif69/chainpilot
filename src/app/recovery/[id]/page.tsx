@@ -74,54 +74,118 @@ function AskBox({ shipmentId }: { shipmentId: string }) {
   };
 
   return (
-    <div className="bg-white border border-[#E5E7EB] rounded-xl p-5">
-      <div className="flex items-center gap-2 mb-1">
-        <MessageCircle className="w-4 h-4 text-[#3157D5]" />
-        <p className="text-[13px] font-semibold text-[#111827]">Ask about this disruption</p>
+    <div className="bg-white border border-[#E5E7EB] rounded-xl overflow-hidden">
+      {/* Header */}
+      <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#E5E7EB] bg-gradient-to-r from-[#EEF2FF] to-white">
+        <div className="flex items-center gap-2.5">
+          <div className="w-7 h-7 rounded-lg bg-[#3157D5] flex items-center justify-center shrink-0">
+            <MessageCircle className="w-3.5 h-3.5 text-white" />
+          </div>
+          <div>
+            <p className="text-[13px] font-semibold text-[#111827] leading-none">Ask about this disruption</p>
+            <p className="text-[10px] text-[#98A2B3] mt-0.5">Powered by real tool calls · no invented numbers</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white border border-[#E5E7EB] rounded-full">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#15803D]" />
+          <span className="text-[10px] font-medium text-[#667085]">Live</span>
+        </div>
       </div>
-      <p className="text-[11px] text-[#98A2B3] mb-3">
-        Not a chatbot — this recognizes what you're asking and calls the same real tools (like <span className="font-mono">simulate_recovery_plan</span>) to compute a genuine answer. No AI model, no invented numbers.
-      </p>
 
+      {/* Chat history */}
       {history.length > 0 && (
-        <div className="space-y-3 mb-3">
+        <div className="px-5 py-4 space-y-4 border-b border-[#F1F3F5] bg-[#FAFAFA] max-h-64 overflow-y-auto">
           {history.map((h, i) => (
-            <div key={i} className="animate-fade-in">
-              <p className="text-[13px] font-medium text-[#111827] mb-1">{h.question}</p>
-              <p className="text-[13px] text-[#667085] leading-relaxed">{h.answer}</p>
-              {h.toolsCalled.length > 0 && (
-                <p className="text-[10px] font-mono text-[#98A2B3] mt-1">via {h.toolsCalled.join(" → ")}</p>
-              )}
+            <div key={i} className="animate-fade-in space-y-2">
+              {/* User bubble */}
+              <div className="flex justify-end">
+                <div className="bg-[#3157D5] text-white text-[12px] px-3.5 py-2 rounded-2xl rounded-tr-sm max-w-[80%] leading-relaxed">
+                  {h.question}
+                </div>
+              </div>
+              {/* Answer bubble */}
+              <div className="flex justify-start gap-2">
+                <div className="w-6 h-6 rounded-full bg-[#EEF2FF] border border-[#C7D2FE] flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="text-[9px] font-bold text-[#3157D5]">CP</span>
+                </div>
+                <div className="bg-white border border-[#E5E7EB] text-[12px] text-[#111827] px-3.5 py-2.5 rounded-2xl rounded-tl-sm max-w-[80%] leading-relaxed shadow-sm">
+                  {h.answer}
+                  {h.toolsCalled.length > 0 && (
+                    <div className="flex items-center gap-1 mt-1.5 pt-1.5 border-t border-[#F1F3F5]">
+                      <span className="text-[9px] text-[#98A2B3]">powered by</span>
+                      {h.toolsCalled.map((t, ti) => (
+                        <span key={ti} className="text-[9px] bg-[#F1F3F5] text-[#667085] px-1.5 py-0.5 rounded">{
+                          t === "find_recovery_options" ? "Option Analysis" :
+                          t === "simulate_recovery_plan" ? "Recovery Simulation" :
+                          t === "get_shipment_impact" ? "Impact Analysis" :
+                          t === "verify_recovery" ? "Verification Engine" :
+                          t === "execute_recovery_plan" ? "Execution Engine" : t
+                        }</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           ))}
+          {asking && (
+            <div className="flex justify-start gap-2 animate-fade-in">
+              <div className="w-6 h-6 rounded-full bg-[#EEF2FF] border border-[#C7D2FE] flex items-center justify-center shrink-0 mt-0.5">
+                <span className="text-[9px] font-bold text-[#3157D5]">CP</span>
+              </div>
+              <div className="bg-white border border-[#E5E7EB] px-3.5 py-2.5 rounded-2xl rounded-tl-sm shadow-sm flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#98A2B3] animate-bounce" style={{ animationDelay: "0ms" }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#98A2B3] animate-bounce" style={{ animationDelay: "150ms" }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#98A2B3] animate-bounce" style={{ animationDelay: "300ms" }} />
+              </div>
+            </div>
+          )}
         </div>
       )}
 
-      <div className="flex flex-wrap gap-1.5 mb-3">
-        {SUGGESTED_QUESTIONS.map((q) => (
-          <button
-            key={q}
-            onClick={() => ask(q)}
-            disabled={asking}
-            className="px-2.5 py-1 rounded-full border border-[#E5E7EB] text-[11px] text-[#667085] hover:bg-[#F7F8FA] hover:border-[#C7D2FE] transition-colors disabled:opacity-50"
-          >
-            {q}
-          </button>
-        ))}
+      {/* Suggested questions */}
+      <div className="px-5 pt-4 pb-3">
+        {history.length === 0 && (
+          <p className="text-[11px] text-[#98A2B3] mb-3">
+            Ask about cost, speed, risk, or what to do next — every answer is computed from live data, not guessed.
+          </p>
+        )}
+        <div className="flex flex-wrap gap-1.5">
+          {SUGGESTED_QUESTIONS.map((q) => (
+            <button
+              key={q}
+              onClick={() => ask(q)}
+              disabled={asking}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#E5E7EB] text-[11px] font-medium text-[#3157D5] bg-[#F7F8FF] hover:bg-[#EEF2FF] hover:border-[#C7D2FE] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <span>{q}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="flex items-center gap-2">
-        <input
-          className="flex-1 border border-[#E5E7EB] rounded-lg px-3 py-2 text-[13px] text-[#111827] placeholder:text-[#98A2B3] focus:outline-none focus:ring-2 focus:ring-[#3157D5] focus:border-transparent"
-          placeholder="Ask a question about cost, speed, risk, or the recommendation…"
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && ask(question)}
-          disabled={asking}
-        />
-        <Button variant="primary" size="sm" icon={asking ? <Loader className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />} onClick={() => ask(question)} disabled={asking || !question.trim()}>
-          Ask
-        </Button>
+      {/* Input row */}
+      <div className="px-5 pb-4">
+        <div className="flex items-center gap-2 bg-[#F7F8FA] border border-[#E5E7EB] rounded-xl px-3 py-2 focus-within:border-[#3157D5] focus-within:bg-white focus-within:ring-2 focus-within:ring-[#EEF2FF] transition-all">
+          <input
+            className="flex-1 bg-transparent text-[13px] text-[#111827] placeholder:text-[#98A2B3] focus:outline-none"
+            placeholder="Ask a question about cost, speed, risk…"
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && ask(question)}
+            disabled={asking}
+          />
+          <button
+            onClick={() => ask(question)}
+            disabled={asking || !question.trim()}
+            className="w-7 h-7 rounded-lg bg-[#3157D5] flex items-center justify-center shrink-0 hover:bg-[#2448C0] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            {asking
+              ? <Loader className="w-3.5 h-3.5 text-white animate-spin" />
+              : <Send className="w-3.5 h-3.5 text-white" />
+            }
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -452,7 +516,7 @@ export default function RecoveryPlanPage() {
     return (
       <div className="flex flex-col h-full items-center justify-center gap-2">
         <Loader className="w-5 h-5 animate-spin text-[#2563EB]" />
-        <p className="text-[13px] text-[#667085]">Simulating recovery options via WebMCP tools…</p>
+        <p className="text-[13px] text-[#667085]">Analyzing recovery options…</p>
       </div>
     );
   }
@@ -563,7 +627,7 @@ export default function RecoveryPlanPage() {
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
             <h2 className="text-[20px] font-bold text-[#111827]">Recovery Analysis</h2>
-            <p className="text-[13px] text-[#667085]">{shipmentId} · {options.length} strategies simulated via simulate_recovery_plan</p>
+            <p className="text-[13px] text-[#667085]">{shipmentId} · {options.length} strategies scored and ranked</p>
           </div>
           <Button variant="ghost" size="sm" icon={<ArrowLeft className="w-3.5 h-3.5" />} onClick={() => router.push(`/disruptions/${shipmentId}`)}>
             Back to Disruption
