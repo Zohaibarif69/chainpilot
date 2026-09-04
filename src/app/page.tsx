@@ -206,7 +206,17 @@ export default function Dashboard() {
   }, []);
 
   useEffect(() => {
-    load();
+    // Wait for the session cookie to be set before making any API calls.
+    // providers.tsx fires "session:ready" once /api/session completes.
+    // If the cookie is already present (e.g. on refresh), load immediately.
+    const alreadyReady = document.cookie.includes("cp_session");
+    if (alreadyReady) {
+      load();
+      return;
+    }
+    const onReady = () => load();
+    window.addEventListener("session:ready", onReady, { once: true });
+    return () => window.removeEventListener("session:ready", onReady);
   }, [load]);
 
   if (loadError) {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useSessionReady } from "@/lib/useSessionReady";
 import { Search, AlertTriangle, Loader } from "lucide-react";
 import { TopHeader } from "@/components/layout/TopHeader";
 import { Badge, priorityVariant, orderStatusVariant } from "@/components/shared/Badge";
@@ -12,6 +13,7 @@ type Filter = "All" | "Critical" | "At Risk" | "On Time" | "Recovered";
 const filters: Filter[] = ["All", "Critical", "At Risk", "On Time", "Recovered"];
 
 export default function OrdersPage() {
+  const sessionReady = useSessionReady();
   const [filter, setFilter] = useState<Filter>("All");
   const [search, setSearch] = useState("");
   const [rows, setRows] = useState<OrderRow[]>([]);
@@ -30,8 +32,9 @@ export default function OrdersPage() {
   }, []);
 
   useEffect(() => {
+    if (!sessionReady) return;
     load();
-  }, [load]);
+  }, [load, sessionReady]);
 
   const filtered = rows.filter((o) => {
     const matchFilter =

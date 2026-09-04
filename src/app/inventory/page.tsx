@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useSessionReady } from "@/lib/useSessionReady";
 import { Search, AlertTriangle, Loader } from "lucide-react";
 import { TopHeader } from "@/components/layout/TopHeader";
 import { Badge } from "@/components/shared/Badge";
@@ -18,6 +19,7 @@ function inventoryStatusVariant(status: string) {
 }
 
 export default function InventoryPage() {
+  const sessionReady = useSessionReady();
   const [filter, setFilter] = useState<StatusFilter>("All");
   const [search, setSearch] = useState("");
   const [rows, setRows] = useState<InventoryRow[]>([]);
@@ -36,8 +38,9 @@ export default function InventoryPage() {
   }, []);
 
   useEffect(() => {
+    if (!sessionReady) return;
     load();
-  }, [load]);
+  }, [load, sessionReady]);
 
   const filtered = rows.filter((item) => {
     const matchFilter = filter === "All" || item.status === filter.toLowerCase();

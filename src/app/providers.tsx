@@ -7,11 +7,17 @@ import { registerChainPilotTools } from "@/mcp/registerTools";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Mint a session cookie for this visitor (no-op if already set).
-    // Must happen before any tool call so every request carries a sessionId.
-    fetch("/api/session", { method: "POST", credentials: "include" });
+    // Mint session cookie FIRST, then signal all pages that it's safe to load.
+    fetch("/api/session", { method: "POST", credentials: "include" })
+      .then(() => {
+        // Dispatch a custom event so any page waiting on session can start fetching.
+        window.dispatchEvent(new Event("session:ready"));
+      })
+      .catch(() => {
+        // Even on failure, unblock pages so they don't hang forever.
+        window.dispatchEvent(new Event("session:ready"));
+      });
 
-    // Expose ChainPilot's 5 real tools to any WebMCP-capable agent.
     registerChainPilotTools();
   }, []);
 

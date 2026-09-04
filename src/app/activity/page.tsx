@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useSessionReady } from "@/lib/useSessionReady";
 import { Activity, User, Cpu, Loader, AlertTriangle, RefreshCw } from "lucide-react";
 import { TopHeader } from "@/components/layout/TopHeader";
 import { Badge } from "@/components/shared/Badge";
@@ -96,6 +97,7 @@ function groupByDate(entries: ActivityEntry[]): { label: string; entries: Activi
 }
 
 export default function ActivityPage() {
+  const sessionReady = useSessionReady();
   const [entries, setEntries] = useState<ActivityEntry[]>([]);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [loaded, setLoaded] = useState(false);
@@ -116,8 +118,9 @@ export default function ActivityPage() {
   }, []);
 
   useEffect(() => {
+    if (!sessionReady) return;
     load();
-  }, [load]);
+  }, [load, sessionReady]);
 
   const groups = groupByDate(entries);
 

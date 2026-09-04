@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useSessionReady } from "@/lib/useSessionReady";
 import { AlertTriangle, Loader } from "lucide-react";
 import { TopHeader } from "@/components/layout/TopHeader";
 import { Badge } from "@/components/shared/Badge";
@@ -27,6 +28,7 @@ function ReliabilityBar({ value }: { value: number }) {
 }
 
 export default function SuppliersPage() {
+  const sessionReady = useSessionReady();
   const [rows, setRows] = useState<SupplierRow[]>([]);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [loaded, setLoaded] = useState(false);
@@ -43,8 +45,9 @@ export default function SuppliersPage() {
   }, []);
 
   useEffect(() => {
+    if (!sessionReady) return;
     load();
-  }, [load]);
+  }, [load, sessionReady]);
 
   return (
     <div className="flex flex-col h-full">
