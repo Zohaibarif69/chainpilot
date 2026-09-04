@@ -1,24 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { getSessionPromise } from "@/app/providers";
 
 /**
- * Returns true once the cp_session cookie has been set by /api/session.
- * On first visit this waits for the "session:ready" event fired by providers.tsx.
- * On subsequent visits (cookie already exists) it returns true immediately.
+ * Returns true once the session cookie is guaranteed to exist.
+ * Works whether the session resolved before or after this hook mounts.
  */
 export function useSessionReady(): boolean {
-  const [ready, setReady] = useState(() => {
-    if (typeof document === "undefined") return false;
-    return document.cookie.includes("cp_session");
-  });
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    if (ready) return;
-    const onReady = () => setReady(true);
-    window.addEventListener("session:ready", onReady, { once: true });
-    return () => window.removeEventListener("session:ready", onReady);
-  }, [ready]);
+    // getSessionPromise() returns the same promise every time —
+    // if it already resolved, .then() fires on the next microtask tick.
+    getSessionPromise().then(() => setReady(true));
+  }, []);
 
   return ready;
 }
