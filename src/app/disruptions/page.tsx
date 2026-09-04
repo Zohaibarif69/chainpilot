@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
-import { useSessionReady } from "@/lib/useSessionReady";
 import { AlertTriangle, ArrowRight, Loader } from "lucide-react";
 import { TopHeader } from "@/components/layout/TopHeader";
 import { Badge } from "@/components/shared/Badge";
@@ -11,7 +10,6 @@ import { formatCurrency } from "@/utils/format";
 import { dataApi, type DisruptionSummary } from "@/mcp/client";
 
 export default function DisruptionsPage() {
-  const sessionReady = useSessionReady();
   const router = useRouter();
   const [disruptions, setDisruptions] = useState<DisruptionSummary[]>([]);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -29,9 +27,8 @@ export default function DisruptionsPage() {
   }, []);
 
   useEffect(() => {
-    if (!sessionReady) return;
     load();
-  }, [load, sessionReady]);
+  }, [load]);
 
   const activeCount = disruptions.filter((d) => d.status === "delayed" || d.status === "at_risk").length;
 

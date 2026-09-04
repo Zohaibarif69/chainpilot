@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
-import { useSessionReady } from "@/lib/useSessionReady";
 import { ArrowRight, AlertTriangle, Loader } from "lucide-react";
 import { TopHeader } from "@/components/layout/TopHeader";
 import { Badge, planStatusVariant, riskVariant } from "@/components/shared/Badge";
@@ -11,7 +10,6 @@ import { formatCurrency } from "@/utils/format";
 import { dataApi, type RecoveryPlanSummary } from "@/mcp/client";
 
 export default function RecoveryPlansPage() {
-  const sessionReady = useSessionReady();
   const router = useRouter();
   const [plans, setPlans] = useState<RecoveryPlanSummary[]>([]);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -30,9 +28,8 @@ export default function RecoveryPlansPage() {
   }, []);
 
   useEffect(() => {
-    if (!sessionReady) return;
     load();
-  }, [load, sessionReady]);
+  }, [load]);
 
   return (
     <div className="flex flex-col h-full">

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { useSessionReady } from "@/lib/useSessionReady";
 import { Search, AlertTriangle, Loader } from "lucide-react";
 import { TopHeader } from "@/components/layout/TopHeader";
 import { Badge, statusVariant, riskVariant } from "@/components/shared/Badge";
@@ -13,7 +12,6 @@ type Filter = "All" | "On Time" | "Delayed" | "At Risk" | "Recovered";
 const filters: Filter[] = ["All", "On Time", "Delayed", "At Risk", "Recovered"];
 
 export default function ShipmentsPage() {
-  const sessionReady = useSessionReady();
   const [filter, setFilter] = useState<Filter>("All");
   const [search, setSearch] = useState("");
   const [rows, setRows] = useState<ShipmentRow[]>([]);
@@ -32,9 +30,8 @@ export default function ShipmentsPage() {
   }, []);
 
   useEffect(() => {
-    if (!sessionReady) return;
     load();
-  }, [load, sessionReady]);
+  }, [load]);
 
   const filtered = rows.filter((s) => {
     const matchFilter =

@@ -7,19 +7,22 @@ export async function POST(req: NextRequest) {
   const existing = req.cookies.get(SESSION_COOKIE)?.value;
   const sessionId = existing ?? randomUUID();
 
-  // Pre-seed the DB for this session (no-op if the blob already exists)
   await loadDb(sessionId);
 
   const res = NextResponse.json({ sessionId });
 
-  if (!existing) {
-    res.cookies.set(SESSION_COOKIE, sessionId, {
-      httpOnly: true,
-      sameSite: "lax",
-      maxAge: 60 * 60 * 24, // 24 hours
-      path: "/",
-    });
-  }
+  // Always set the cookie (even if refreshing) to ensure it survives
+  res.cookies.set(SESSION_COOKIE, sessionId, {
+    httpOnly: true,
+    sameSite: "lax",
+    maxAge: 60 * 60 * 24,
+    path: "/",
+  });
 
   return res;
+}
+
+export async function GET(req: NextRequest) {
+  // Allow GET too so browsers can prefetch
+  return POST(req);
 }

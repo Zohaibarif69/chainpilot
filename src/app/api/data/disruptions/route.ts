@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { listDisruptions } from "@/lib/tools";
-import { getSessionId } from "@/lib/session";
+import { getSessionId, patchSessionCookie } from "@/lib/session";
 
 export async function GET(req: NextRequest) {
   const sessionId = getSessionId(req);
-  return NextResponse.json({ disruptions: await listDisruptions(sessionId) });
+  const _res = NextResponse.json({ disruptions: await listDisruptions(sessionId) });
+
+  patchSessionCookie(req, _res, sessionId);
+
+  return _res;
 }
